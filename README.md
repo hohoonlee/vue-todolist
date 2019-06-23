@@ -1,4 +1,5 @@
 # todoapp
+from https://github.com/joshua1988/doit-vuejs
 
 ## Project setup
 ```
@@ -24,6 +25,3 @@ yarn run test
 ```
 yarn run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
