@@ -4,15 +4,15 @@ from https://github.com/joshua1988/doit-vuejs
 
 ## Project setup
 ```
-yarn install
+yarn
 ```
 
 ### Compiles and hot-reloads for development
 ```
-yarn run serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn run build
+yarn build
 ```
