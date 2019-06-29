@@ -1,9 +1,9 @@
 <template>
   	<div id="app">
 		<TodoHeader></TodoHeader>
-		<TodoInput @addTodo='addTodo'></TodoInput>
-		<TodoList @removeItem='removeItem' @setItem='setTodo'></TodoList>
-		<TodoFooter @clearTodo='clearTodo'></TodoFooter>
+		<TodoInput></TodoInput>
+		<TodoList @setItem='setTodo'></TodoList>
+		<TodoFooter></TodoFooter>
 	</div>
 </template>
 
@@ -21,26 +21,10 @@ export default {
 		TodoList
 	},
 	methods: {
-		addTodo(val) {
-			if(this.$store.state.todoItems.includes(val)) return;
-			// this.todoItems.push({key:val, val:'N'});
-			localStorage.setItem(val, 'N');
-			this.$store.state.todoItems.push({key:val, val:'N'});
-		},
 		setTodo(key, val) {
 			localStorage.setItem(key, val);
 			// this.todoItems.find(item=>item.key == key).val = val;
 			this.$store.state.todoItems.find(item=>item.key == key).val = val;
-		},
-		removeItem(val, index) {
-			localStorage.removeItem(val);
-			// this.todoItems.splice(index, 1);
-			this.$store.state.todoItems.splice(index, 1);
-		},
-		clearTodo() {
-			localStorage.clear();
-			// this.todoItems.splice(0, this.todoItems.length);
-			this.$store.state.todoItems.splice(0, this.$store.state.todoItems.length);
 		},
 		readItem() {
 			if(!localStorage.length) return;
@@ -55,7 +39,7 @@ export default {
 		}
 	},
 	created() {
-		this.readItem();
+		// this.readItem();
 	},
 };
 </script>

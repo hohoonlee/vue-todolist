@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<transition-group name="list" tag="ul">
-			<li v-for='(item, index) in this.$store.state.todoItems' :key='"list-key-" + index' class='shadow'>
+			<li v-for='(item, index) in this.$store.getters.getTodoItems' :key='"list-key-" + index' class='shadow'>
 				<i class='checkBtn fa fa-square' aria-hidden="true" @click='toggle(item)' v-show='item.val == "N"'></i>
 				<i class='checkBtn fa fa-check'  aria-hidden="true" @click='toggle(item)' v-show='item.val == "Y"'></i>
 				{{item.key}}
@@ -17,7 +17,7 @@
 	export default {
 		methods: {
 			removeItem(key, index) {
-				this.$emit('removeItem', key, index);
+				this.$store.dispatch('removeTodo', {key, index});
 			},
 			toggle(item) {
 				this.$emit('setItem', item.key, (item.val == 'N')?'Y':'N')

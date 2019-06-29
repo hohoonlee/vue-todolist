@@ -33,7 +33,7 @@
 				if(!this.newTodoItem) return this.showModalMessage('할 일을 입력하세요.');
 				const val = this.newTodoItem.trim();
 				if(!val) return this.showModalMessage('할 일을 입력하세요.');
-				this.$emit('addTodo', val);
+				this.$store.dispatch('addTodo', {key:val, val:'N'});
 				this.clearInput();
 			},
 			clearInput() {
